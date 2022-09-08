@@ -1,38 +1,23 @@
-import Directory from "./components/directory/directory.component";
+import { Routes, Route } from "react-router-dom";
+
+import NavigationBar from "./routes/navigationbar/navigationbar.route";
+import Home from "./routes/home/home.route";
+import Shop from "./routes/shop/shop.route";
+import Contact from "./routes/contact/contact.route";
+import SignIn from "./routes/sign-in/sign-in.route";
+import SandBox from "./routes/sandbox/sandbox.route";
 
 const App = () => {
-  const categories = [
-    {
-      id: 1,
-      title: "hats",
-      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-    },
-    {
-      id: 2,
-      title: "jackets",
-      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-    },
-    {
-      id: 3,
-      title: "sneakers",
-      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-    },
-    {
-      id: 4,
-      title: "womens",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-    },
-    {
-      id: 5,
-      title: "mens",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-    },
-  ];
-
   return (
-    <div>
-      <Directory categoriesProp={categories} />
-    </div>
+    <Routes>
+      <Route path="/sandbox" element={<SandBox />} />
+      <Route path="/" element={<NavigationBar />}>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<Shop />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="sign-in" element={<SignIn />} />
+      </Route>
+    </Routes>
   );
 };
 
