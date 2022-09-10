@@ -22,6 +22,9 @@ const NavigationBar = () => {
           <Link className="nav-link" to="/sign-in">
             SIGN IN
           </Link>
+          <Link className="nav-link" to="/sandbox">
+            S
+          </Link>
         </div>
       </div>
       <Outlet />

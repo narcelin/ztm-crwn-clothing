@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./sandbox.styles.scss";
 
 const SandBox = () => {
-  const [todoList, setTheArray] = useState([]);
+  const [todoList, setToDoList] = useState([]);
   const [targetValue, setTargetValue] = useState("");
 
   const onChangeHandler = (event) => {
@@ -17,23 +17,22 @@ const SandBox = () => {
         <button
           onClick={() => {
             // todoList.push(targetValue);
-            // setTheArray(todoList.filter(() => true));
+            // setToDoList(todoList.filter(() => true));
             console.log(todoList);
-            setTheArray((oldArray) => [...oldArray, targetValue]);
+            setToDoList((oldArray) => [...oldArray, targetValue]);
           }}
         >
           ADD
         </button>
       </div>
       {todoList.map((todo, i) => (
-        <div key={`todo ${i}`}>
-          <div>{todo}</div>
+        <div key={`todo ${i}`} className="todo-list">
           <button
             onClick={() => {
-              setTheArray((deleteThis) =>
+              setToDoList((deleteThis) =>
                 deleteThis.filter((_, index) => index !== i)
               );
-              //   setTheArray((products) =>
+              //   setToDoList((products) =>
               //     products.filter((_, index) => index !== i)
               //   );
 
@@ -42,13 +41,7 @@ const SandBox = () => {
           >
             x
           </button>
-          <button
-            onClick={() => {
-              console.log(todoList);
-            }}
-          >
-            TODO CONSOLEOG
-          </button>
+          <div>{todo}</div>
         </div>
       ))}
     </div>

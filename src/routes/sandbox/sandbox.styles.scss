@@ -2,4 +2,10 @@
   display: grid;
   justify-content: center;
   padding: 12rem;
+  background-color: aquamarine;
+
+  .todo-list {
+    color: red;
+    display: flex;
+  }
 }
