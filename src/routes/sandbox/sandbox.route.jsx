@@ -10,17 +10,45 @@ const SandBox = () => {
     setTargetValue(event.target.value);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.target.value === "") {
+      return;
+    }
+
+    const addToDoList = () => {
+      setTargetValue(event.target.value);
+      setToDoList((oldArray) => [...oldArray, targetValue]);
+      setTargetValue("");
+    };
+
+    addToDoList();
+
+    if (event.keyCode === 13) {
+      addToDoList();
+    }
+  };
+
   return (
     <div className="sandbox">
       <div>
-        <input type="text" onChange={onChangeHandler} />
+        <input
+          type="text"
+          onChange={onChangeHandler}
+          value={targetValue}
+          onKeyDown={handleKeyPress}
+        />
         <button
-          onClick={() => {
-            // todoList.push(targetValue);
-            // setToDoList(todoList.filter(() => true));
-            console.log(todoList);
-            setToDoList((oldArray) => [...oldArray, targetValue]);
-          }}
+          onClick={
+            handleKeyPress
+
+            //   () => {
+            //   todoList.push(targetValue);
+            //   setToDoList(todoList.filter(() => true));
+            //   console.log(todoList);
+            //   setToDoList((oldArray) => [...oldArray, targetValue]);
+            //   setTargetValue("");
+            // }
+          }
         >
           ADD
         </button>
