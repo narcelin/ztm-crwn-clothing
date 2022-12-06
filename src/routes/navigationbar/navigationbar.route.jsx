@@ -8,7 +8,7 @@ import { ReactComponent as CrwnLogo } from "./../../assets/crown.svg";
 import { UserContext } from "../../contexts/user.context";
 import { CartContext } from "../../contexts/cart.contexts";
 
-import { signOutUser } from "../../firebase/firebase.utils";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 import {
   LogoContainer,
