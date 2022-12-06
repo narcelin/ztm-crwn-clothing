@@ -1,5 +1,6 @@
-import { useEffect } from "react";
-import { createContext, useState, useReducer } from "react";
+import { createContext, useReducer } from "react";
+
+import { createAction } from "./../utils/reducer/reducer.utils"; //Could use this to replace dispatch. Look in file to see more
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
@@ -118,23 +119,10 @@ export const CartProvider = ({ children }) => {
       type: CART_ACTION_TYPES.SET_CART_ITEMS,
       payload: {
         cartItems: newCartItems,
-        cartTotal: newCartTotalPrice,
+        cartTotalPrice: newCartTotalPrice,
         cartCount: newCartCount,
       },
     });
-    /*
-
-generate new cart total
-
-generate newCartCount
-
-dispatch new action with payload = {
-  newCartItems,
-  newCartTotal,
-  newCartCount
-}
-
-    */
   };
 
   const addItemToCart = (productToAdd) => {
