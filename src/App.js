@@ -1,4 +1,6 @@
+import { useEffect } from "react"; //useReducer for more complex context.
 import { Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import NavigationBar from "./routes/navigationbar/navigationbar.route";
 import Home from "./routes/home/home.route";
@@ -8,7 +10,29 @@ import Contact from "./routes/contact/contact.route";
 import Authentication from "./routes/authentication/authentication.route";
 import Checkout from "./routes/checkout/checkout.route";
 
+import { setCurrentUser } from "./store/user/user.action";
+
+import {
+  createUserDocumentFromAuth,
+  onAuthStateChangedListener,
+} from "./utils/firebase/firebase.utils.jsx";
+
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
+      dispatch(setCurrentUser(user));
+    });
+    return unsubscribe;
+  }, [
+    dispatch,
+    /* can place "dispatch" to remove warning but technically only mounts on initialization */
+  ]);
+
   return (
     <Routes>
       <Route path="/" element={<NavigationBar />}>
