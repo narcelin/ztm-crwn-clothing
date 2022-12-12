@@ -29,18 +29,18 @@ const NavigationBar = () => {
   return (
     <Fragment>
       <NavigationContainer>
-        <LogoContainer to="/">
+        <LogoContainer to="/ztm-crown-clothing">
           <CrwnLogo className="logo" />
         </LogoContainer>
         <NavLinksContainer>
-          <NavLink to="/shop">SHOP</NavLink>
-          <NavLink to="/contact">CONTACT</NavLink>
+          <NavLink to="/ztm-crown-clothing/shop">SHOP</NavLink>
+          <NavLink to="/ztm-crown-clothing/contact">CONTACT</NavLink>
           {currentUser ? (
             <NavLink as="span" onClick={signOutHandler}>
               SIGN OUT
             </NavLink>
           ) : (
-            <NavLink to="/auth">SIGN IN</NavLink>
+            <NavLink to="/ztm-crown-clothing/auth">SIGN IN</NavLink>
           )}
           <CartIcon />
         </NavLinksContainer>
