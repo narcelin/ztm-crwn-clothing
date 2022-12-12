@@ -1,7 +1,7 @@
 {
   "name": "ztm-crwn-clothing",
   "version": "0.1.0",
-  "homepage": "https://nicolasarcelin.github.io/ztm-crwn-clothing/",
+  "homepage": "https://nicolasarcelin.github.io/",
   "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
