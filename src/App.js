@@ -1,5 +1,5 @@
 import { useEffect } from "react"; //useReducer for more complex context.
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import NavigationBar from "./routes/navigationbar/navigationbar.route";
@@ -34,15 +34,17 @@ const App = () => {
   ]);
 
   return (
-    <Routes>
-      <Route path="/" element={<NavigationBar />}>
-        <Route index element={<Home />} />
-        <Route path="shop/*" element={<Shop />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="auth" element={<Authentication />} />
-        <Route path="checkout" element={<Checkout />} />
-      </Route>
-    </Routes>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Routes>
+        <Route path="/" element={<NavigationBar />}>
+          <Route index element={<Home />} />
+          <Route path="shop/*" element={<Shop />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="auth" element={<Authentication />} />
+          <Route path="checkout" element={<Checkout />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
