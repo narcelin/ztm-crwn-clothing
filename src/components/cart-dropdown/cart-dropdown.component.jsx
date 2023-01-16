@@ -13,7 +13,7 @@ const CartDropdown = () => {
   const navigate = useNavigate();
 
   const goToCheckoutHandler = () => {
-    navigate("/ztm-crown-clothing/checkout");
+    navigate("/checkout");
     setIsCartOpen(false);
   };
 

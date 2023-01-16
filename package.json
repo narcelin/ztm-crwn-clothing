@@ -1,8 +1,8 @@
 {
   "name": "ztm-crwn-clothing",
   "version": "0.1.0",
-  "homepage": "https://nicolasarcelin.github.io/",
-  "private": false,
+  "homepage": "https://nicolasarcelin.github.io/ztm-crwn-clothing",
+  "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.16.5",
@@ -22,9 +22,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

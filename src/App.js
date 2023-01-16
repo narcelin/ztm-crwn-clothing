@@ -35,7 +35,7 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path="/ztm-crown-clothing" element={<NavigationBar />}>
+      <Route path="/" element={<NavigationBar />}>
         <Route index element={<Home />} />
         <Route path="shop/*" element={<Shop />} />
         <Route path="contact" element={<Contact />} />
